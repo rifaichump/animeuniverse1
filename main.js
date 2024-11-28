@@ -59,20 +59,17 @@ function generateImage() {
 
 var carousel = document.getElementById('videoCarousel');
 carousel.addEventListener('slide.bs.carousel', function (event) {
-    // Menghentikan video yang sedang diputar
     var activeVideo = document.querySelector('.carousel-item.active video');
     if (activeVideo) {
         activeVideo.pause();
     }
-
-    // Memutar video pada item yang baru aktif
+    
     var nextVideo = event.relatedTarget.querySelector('video');
     if (nextVideo) {
         nextVideo.play();
     }
 });
 
-// Memutar video pertama saat halaman dimuat
 window.addEventListener('load', function() {
     var firstVideo = document.querySelector('.carousel-item.active video');
     if (firstVideo) {

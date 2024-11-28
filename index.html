@@ -196,8 +196,8 @@
             color: #333;
         }
 
-        .form-control {
-            border-radius: 30px;
+        .form-select {
+            border-radius: 10px;
             margin-bottom: 15px;
             padding: 15px;
             font-size: 16px;
@@ -263,16 +263,14 @@
     
     <div id="form-container" class="form-container">
         <h3 class="form-title">Pilih Waifu Disini</h3>
-        <div>
           <select class="form-select" id="type-waifu" aria-label="Default select example">
             <option value="waifu">Default</option>
             <option value="neko">Neko</option>
             <option value="shinobu">Shinobu</option>
             <option value="megumin">Megumin</option>
           </select>
-          <div id="image-result" class="image-result pd-2"></div>
+          <div id="image-result" class="image-result pd"></div>
           <button id="submit-btn" class="btn btn-primary" type="button" onclick="generateImage()">Gass</button>
-        </div>
         
 <!--         <form action="#" method="POST">
             <div class="mb-3">

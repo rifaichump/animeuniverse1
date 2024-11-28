@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Universe Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(45deg, #232125, #1f1321, #9e7cd4);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            overflow-y: auto;
+        }
+        
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            animation: textAnimation 3s infinite alternate;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            background-image: url('images/logo.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            border: 4px solid #f0f5fa;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out, border 0.5s ease;
+        }
+        
+        @keyframes textAnimation {
+            0% {
+                transform: translateY(0);
+                color: #be75e6;
+            }
+            50% {
+                transform: translateY(-10px);
+                color: #e9d1f6;
+            }
+            100% {
+                transform: translateY(0);
+                color: #9781ef;
+            }
+        }
+        
+
+        .logo:hover {
+            transform: rotate(360deg);
+            border-color: #ecf7a0;
+            border-width: 3px;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            overflow: hidden;
+        }
+        
+        .carousel-item video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .btn-custom {
+            width: 250px;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn-primary-custom {
+            background-color: #007bff;
+            border: none;
+            color: white;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .btn-danger-custom {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+        }
+
+        .btn-danger-custom:hover {
+            background-color: #c82333;
+            transform: scale(1.05);
+        }
+
+        .btn-success-custom {
+            background-color: #28a745;
+            border: none;
+            color: white;
+        }
+
+        .btn-success-custom:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .image-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #f2e695;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-inner img {
+            max-height: 400px;
+            object-fit: cover;
+            border: 4px solid #6b407e;
+            border-radius: 4%;
+        }
+        
+        .carousel {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 50px;
+            padding: 14px;
+            border: 4px solid rgba(211,196,245,0.8);
+            background-color: rgba(136,83,255,0.8);
+            border-radius: 10px;
+        }
+
+        .carousel-control-prev, .carousel-control-next {
+            color: #fff;
+            font-size: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Custom form styles */
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: rgba(136,83,255,0.8);
+            border-radius: 10px;
+        }
+
+        .form-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 30px;
+            margin-bottom: 15px;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 15px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <div class="logo"></div>
+        <div class="logo-title">Anime Universe</div> <!-- Tambahan judul -->
+    </div>
+    <div>
+        <a class="btn btn-outline-info btn-custom" href="https://chat.whatsapp.com/FMFBe4kJwao4xJIBWYzdy0">Group WhatsApp</a>
+        <a class="btn btn-outline-info btn-custom" href="https://add.aternos.org/AnimeUnicraft">Server Minecraft</a>
+        <a class="btn btn-outline-info btn-custom" href="https://www.mediafire.com/file/a3r459pa0hqh0p5/5fc3e386-4440-4bb4-993f-f8e2156d02b3.apk/file">Minecraft Download</a>
+    </div>
+
+
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="image-title">
+          <h3>Kenangan Cuy</h2>
+        </div>
+        <div class="carousel-inner" id="carousel-inner-img"></div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+    <div class="container my-2">
+      <div id="videoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="500000000000">
+          <div class="carousel-inner" id="carousel-inner-vid"></div>
+  
+          <!-- Kontrol Carousel (panah atas bawah) -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#videoCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Sebelumnya</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#videoCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Berikutnya</span>
+          </button>
+      </div>
+    </div>
+    
+    <div id="form-container" class="form-container">
+        <h3 class="form-title">Pilih Waifu Disini</h3>
+        <div>
+          <select class="form-select" id="type-waifu" aria-label="Default select example">
+            <option value="waifu">Default</option>
+            <option value="neko">Neko</option>
+            <option value="shinobu">Shinobu</option>
+            <option value="megumin">Megumin</option>
+          </select>
+          <button id="submit-btn" class="btn btn-primary" type="button" onclick="generateImage()">Gass</button>          
+          <div id="image-result" class="mb-3"></div>
+        </div>
+        
+<!--         <form action="#" method="POST">
+            <div class="mb-3">
+                <input id="description" type="text" class="form-control" placeholder="Description">
+            </div>
+            <div id="image-result" class="mb-3"></div>
+            <button type="submit" class="form-submit">Kirim</button>
+        </form> -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="main.js" async></script>
+</body>
+</html>

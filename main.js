@@ -39,6 +39,7 @@ function clearImage() {
 
 async function generateImage() {
   try {
+    btnSubmit.disabled = true
     const response = await fetch('https://api.waifu.pics/sfw/' + typeWaifu.value)
     const data = await response.json()
     const src = data.url
@@ -55,7 +56,6 @@ async function generateImage() {
         <button type="button" class="btn btn-success" onclick="generateImage()">Retry</button>
         <button type="button" class="btn btn-danger" onclick="clearImage()">Clear</button>
     `
-    btnSubmit.disabled = true
   } catch(e) {
     uploadStatus.innerHTML = `<div class="alert alert-danger">${e.message}</div>`
   }

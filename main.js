@@ -37,18 +37,20 @@ function clearImage() {
   btnSubmit.disabled = false
 }
 
+
 async function generateImage() {
+  let [name, type] = typeWaifu.value.split` `
   try {
     btnSubmit.disabled = true
-    const response = await fetch('https://api.waifu.pics/sfw/' + typeWaifu.value)
+    const response = await fetch(`https://api.waifu.pics/${type}/${name}`)
     const data = await response.json()
     const src = data.url
     
     for(let i = 5;i > 0;i--) {
-      uploadStatus.innerHTML = `<div class="alert alert-success">Tunggu...${i}</div>`
+      uploadStatus.innerHTML = `<div class="alert alert-success">${type == "nsfw" ? 'Njir mau coli kah?, Tunggu ya bro' : 'Tunggu'}...${i}</div>`
       await new Promise(_ => setTimeout(_, 1000))
     }
-    uploadStatus.innerHTML = `<div class="alert alert-success">Tunggu...0</div>`
+    uploadStatus.innerHTML = `<div class="alert alert-success">${type == "nsfw" ? 'Njir mau coli kah?, Tunggu ya bro' : 'Tunggu'}...0</div>`
     await new Promise(_ => setTimeout(_, 1000))
     
     uploadStatus.innerHTML = `
